@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ugibaj Ceno Nepremičnin - Igra</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading">
+        Nalagam nepremičnine...
+    </div>
+
+    <!-- Landing Page -->
+    <div id="landing" class="landing-page">
+        <div class="landing-content">
+            <h1>🏠 Ugibaj Ceno Nepremičnin</h1>
+            <p>
+                Preizkusi svoje znanje slovenskega nepremičninskega trga! 
+                Primerjaj dve nepremičnini in ugibaj, katera je dražja. 
+                Koliko zaporednih odgovorov boš znal?
+            </p>
+            <button class="start-btn" onclick="startGame()">
+                🎮 Začni Igro
+            </button>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div id="gameContainer" class="game-container">
+        <div class="score-board">
+            Rezultat: <span id="score">0</span>
+        </div>
+
+        <div class="properties-container">
+            <!-- Left Property -->
+            <div id="leftProperty" class="property property-left">
+                <div class="property-overlay">
+                    <div class="property-top">
+                        <div class="property-info-top">
+                            <div class="property-location" id="leftLocation"></div>
+                            <div class="property-area" id="leftArea"></div>
+                        </div>
+                    </div>
+                    <div class="property-middle">
+                        <div class="property-price" id="leftPrice"></div>
+                    </div>
+                    <div class="property-bottom"></div>
+                </div>
+            </div>
+
+            <!-- Right Property -->
+            <div id="rightProperty" class="property property-right">
+                <div class="property-overlay">
+                    <div class="property-top">
+                        <div class="property-info-top">
+                            <div class="property-location" id="rightLocation"></div>
+                            <div class="property-area" id="rightArea"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="property-middle">
+                        <!-- Choice Buttons in center of right image -->
+                        <div class="choice-buttons" id="choiceButtons">
+                            <button class="choice-btn higher" onclick="makeChoice('higher')">
+                                ⬆️ Višja
+                            </button>
+                            <button class="choice-btn lower" onclick="makeChoice('lower')">
+                                ⬇️ Nižja
+                            </button>
+                        </div>
+                        
+                        <div class="property-price" id="rightPrice" style="display: none;"></div>
+                    </div>
+                    
+                    <div class="property-bottom">
+                        <!-- Image Navigation -->
+                        <div class="image-navigation" id="imageNavigation">
+                            <button class="nav-btn" id="prevBtn" onclick="previousImage()">‹</button>
+                            <span class="image-counter" id="imageCounter">1 od 1</span>
+                            <button class="nav-btn" id="nextBtn" onclick="nextImage()">›</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- VS Container -->
+        <div class="vs-container">
+            VS
+        </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameOver" class="game-over hidden">
+        <div class="game-over-content">
+            <h2 id="gameOverTitle">Konec igre!</h2>
+            <p id="gameOverMessage">Čestitam! Dosegel si rezultat: <span id="finalScore">0</span></p>
+            <button class="restart-btn" onclick="restartGame()">
+                🔄 Igraj Ponovno
+            </button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+</body>
+</html>
